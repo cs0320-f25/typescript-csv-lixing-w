@@ -56,7 +56,6 @@ export async function parseCSV<T>(path: string, schema?: z.ZodType<T>): Promise<
         objectResult = [];
       }
     }
-    
   }
   if (retString)
     return result;

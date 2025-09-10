@@ -131,6 +131,9 @@ still readable, mildly stuffed by jargons, than the original prompt.
 #### Team members and contributions (include cs logins):
 #### Collaborators (cslogins of anyone you worked with on this project and/or generative AI):
 ChatGPT for conceptual and design questions on step 2 and 3.
+Copilot for code completion. I used it for writing expect-toEqual lines 
+in the tests. I checked them line by line to make sure it matches the desired 
+output.
 
 #### Total estimated time it took to complete project:
 3hrs
