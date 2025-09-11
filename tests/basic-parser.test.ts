@@ -6,6 +6,7 @@ const CSV_W_SPACE = path.join(__dirname, "../data/csv_w_space.csv");
 const CSV_W_DOUBLE_Q = path.join(__dirname, "../data/csv_w_double_q.csv");
 const CSV_W_COMMA = path.join(__dirname, "../data/csv_w_comma.csv");
 const CSV_W_COMMA_AND_SPACE = path.join(__dirname, "../data/csv_w_comma_space.csv");
+const CSV_EMPTY = path.join(__dirname, "../data/empty.csv");
 
 // tests from stencil
 test("parseCSV yields arrays", async () => {
@@ -110,6 +111,24 @@ test("parseCSV handles commas and spaces", async () => {
 
 test("parseCSV yields only arrays when handling commas and spaces", async () => {
   const results = await parseCSV(CSV_W_COMMA_AND_SPACE);
+
+  for(const row of results) {
+    expect(Array.isArray(row)).toBe(true);
+  }
+});
+
+// tests for empty entries, blank lines 
+test("parseCSV handles empty entries and ignores blank lines", async () => {
+  const results = await parseCSV(CSV_EMPTY);
+
+  expect(results).toHaveLength(7);
+  for (let i = 0; i < 7; i++) {
+    expect(results[i]).toEqual(["", "", "", ""]);
+  }
+});
+
+test("parseCSV yields only arrays when handling empty entries and blank lines", async () => {
+  const results = await parseCSV(CSV_EMPTY);
 
   for(const row of results) {
     expect(Array.isArray(row)).toBe(true);

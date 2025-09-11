@@ -32,11 +32,13 @@ Include a list of the top 4 enhancements or edge cases you think are most valuab
         The user can provide a delimiter or a set of delimiters.
         The delimiter should default to comma is not specified.
         The parser should automatically detect different line endings.
+
 2.  (functionality) 
     As a user of the parser, I want to enclose my data entry by double quotes to 
     group data, so as to allow my data to contain the delimiters. Also, I want 
     to use the escaped double quotes to also allow uses of actual double quotes 
-    in my data.
+    in my data. I want my parser to ignore blank lines and process empty 
+    entries correctly, so I can extract data from files not that well-formed.
     Idea from me and GPT.
 
     Acceptance criteria:
@@ -44,6 +46,9 @@ Include a list of the top 4 enhancements or edge cases you think are most valuab
         The parser should remove the enclosing double quotes when they exist.
         The parser should transform escaped double quotes into actual double 
         quotes in the output.
+        The parser should ignore any blank lines.
+        The parser should correctly produce blank entries from consecutive 
+        delimiters.
 
 3.  (functionality)
     As a user of the parser, I want to validate my data and be informed if 
